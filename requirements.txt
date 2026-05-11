@@ -1,0 +1,8 @@
+selenium
+webdriver-manager
+streamlit
+pandas
+plotly
+openpyxl
+python-dotenv
+faker
