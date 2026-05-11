@@ -28,3 +28,7 @@ Python · Selenium · Streamlit · Pandas · Plotly · python-dotenv
 - requirements.txt
 - .env.example — Template de variáveis de ambiente
 - data/ — Relatórios baixados (ignorado pelo git)
+
+## Preview
+
+![Dashboard](preview.png)
