@@ -1,11 +1,17 @@
 # Neppo Dashboard — Atendimentos
 
-Automação completa para extração e visualização de dados de atendimentos do Neppo (plataforma omnichannel).
+Automação de extração e visualização de dados de atendimentos do Neppo, plataforma omnichannel de atendimento via WhatsApp e outros canais.
 
-## O que faz
+## O problema
 
-- **coletor.py** — bot Selenium que faz login no Neppo, aplica filtros de data e baixa automaticamente os relatórios de histórico de sessões e status de mensagens diretas
-- **dashboard.py** — dashboard Streamlit que lê os relatórios baixados e exibe atendimentos e envios por agente, agrupados por unidade comercial
+Os relatórios de atendimentos do Neppo não têm exportação via API. O processo manual exigia login na plataforma, navegação pelos filtros de data, download do CSV e abertura no Excel — repetido toda vez que alguém precisava de dados atualizados.
+
+## A solução
+
+- **coletor.py** — bot Selenium que faz login, aplica os filtros de período e baixa automaticamente os relatórios de sessões e mensagens diretas
+- **dashboard.py** — dashboard Streamlit que lê os arquivos gerados e exibe atendimentos por agente, agrupados por unidade comercial, com filtros interativos
+
+O processo que levava minutos de trabalho manual passa a rodar sem intervenção humana.
 
 ## Stack
 
@@ -14,11 +20,13 @@ Python · Selenium · Streamlit · Pandas · Plotly · python-dotenv
 ## Como rodar localmente
 
 1. Clone o repositório
-2. Instale as dependências: pip install -r requirements.txt
-3. Copie o .env.example para .env e preencha com suas credenciais
-4. Para gerar dados de demonstração: python gerar_dados_mock.py
-5. Para rodar o dashboard: streamlit run dashboard.py
-6. Para rodar o coletor: python coletor.py
+2. Instale as dependências: `pip install -r requirements.txt`
+3. Copie `.env.example` para `.env` e preencha com suas credenciais
+4. Para gerar dados de demonstração: `python gerar_dados_mock.py`
+5. Para rodar o dashboard: `streamlit run dashboard.py`
+6. Para rodar o coletor: `python coletor.py`
+
+> O `gerar_dados_mock.py` cria dados fictícios realistas para você testar o dashboard sem precisar de acesso ao Neppo.
 
 ## Estrutura
 
